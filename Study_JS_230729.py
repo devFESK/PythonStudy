@@ -1,2 +1,2 @@
-print("hello fucking cock sucker?")
-print("I just made git connection you fucking butt turd")
+print("hello world")
+print("I'm new to this world, nice to meet you guys")
