@@ -325,7 +325,7 @@ for i in range(n01):
     for j in range(n01):
         print("*", end = "")
     print()
-'''
+
 
     # 04 - 08 숫자 하나를 입력받아 다음과 같이 출력해보세요
 n = int(input())
@@ -399,3 +399,111 @@ for i in range((2 * n) + 1):
         for k in range(n - (i - 5)):
             print(" ", end = "")
         print("*")
+
+
+# 09 문자를 입력하여 단어 하나씩 출력하는 코드를 만들어 보세요.
+
+t = input()
+tl = len(t)
+
+for i in range(tl):
+    print(t[i])
+
+print()
+
+for i in t:
+    print(i)
+
+
+# 10 여러가지 값이 담긴 리스트 변수를 생성하고 반복문을 이용하여 하나씩 출력해보세요
+
+a = [1, 2, "A", "B"]
+for i in a:
+    print(i)
+
+# 11 10번 변수로 해당 변수의 인덱스와 값을 출력해보세요
+
+a = [1, 2, "A", "B"]
+for x, y in enumerate(a):
+    print(x, y)
+
+print()
+
+b = len(a)
+for i in range(b):
+    print(f"{i} {a[i]}")
+
+
+# 12 dict로 해
+a = {"aser" : "B", 2 : "C", 3 : "A"}
+
+for i in a:
+    print(i, a[i], sep = " : ")
+
+for x, y in a.items():
+    print(x, y)
+for x, y in enumerate(a):
+    print(x, a[y])
+
+for x, (y, z) in enumerate(a.items()):
+    print(x, y, z)
+
+import time
+
+i = 1
+while i > 0:
+    print(i)
+    i += 1
+    time.sleep(0.5)
+
+    
+# 13 while 문을 사용하여 10부터 1가지 줄어드는 코드를 작성해보세요
+poison = 10
+while poison > 0:
+    print(poison)
+    poison -= 1
+else:
+    print("창훈 is dead") 
+
+
+# 14 입력한 숫자까지 3, 6, 9 게임을 진행해 보세요
+
+er = int(input())
+cr = 1
+
+while er >= cr:
+    if "3" in str(cr) or "6" in str(cr) or "9" in str(cr):
+        print(f"({cr})짝!", end = " ")
+        cr += 1
+        continue
+    print(cr, end = " ")
+    cr += 1
+else:
+    print("게임 종료!")
+
+
+# 15 여러가지 값이 담긴 dict 변수 생성, 입력한 값이 키로 존재하는지 확인, 존재하면 벨류값과 함께 출력하세요. 프로그램은 123을 누를때까지 반복한다.
+
+a = {"C": 500, "C++": 700, "C#" : 900, "JAVA": 1000, "PYTHON": 5000}
+t = input("입력하세요 >> ")
+
+while t != "123":
+    if t in a.keys():
+        print(f"{t}는 존재합니다. value = {a[t]}")
+    else:
+        print(f"{t}는 존재하지 않습니다.")
+    t = input("입력하세요 >> ")
+else:
+    print("프로그램을 종료합니다.")
+'''
+a = {"C": 500, "C++": 700, "C#" : 900, "JAVA": 1000, "PYTHON": 5000}
+
+while True:
+    t = input("입력하세요 >> ")
+    if t == "123":
+        print("프로그램을 종료합니다.")
+        break
+    if t in a.keys():
+        print(f"{t}는 존재합니다. value = {a[t]}")
+    else:
+        print(f"{t}는 존재하지 않습니다.")
