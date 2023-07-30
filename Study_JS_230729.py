@@ -495,7 +495,7 @@ while t != "123":
     t = input("입력하세요 >> ")
 else:
     print("프로그램을 종료합니다.")
-'''
+
 a = {"C": 500, "C++": 700, "C#" : 900, "JAVA": 1000, "PYTHON": 5000}
 
 while True:
@@ -507,3 +507,22 @@ while True:
         print(f"{t}는 존재합니다. value = {a[t]}")
     else:
         print(f"{t}는 존재하지 않습니다.")
+
+'''
+import time
+a = ["안녕하세요", "반갑습니다", "제 이름은", "김진수입니다.", "너는 누구세요?"]
+for j in a:
+    for i in j:
+        print(i, end = "")
+        time.sleep(0.1)
+    print()
+
+time.sleep(1)
+msg = input(">> ")
+
+b = "안녕하살법"
+for i in b:
+    print(i, end = "")
+    time.sleep(0.1)
+print()
+msg = input(">> ")
