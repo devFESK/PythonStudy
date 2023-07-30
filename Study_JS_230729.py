@@ -508,7 +508,7 @@ while True:
     else:
         print(f"{t}는 존재하지 않습니다.")
 
-'''
+
 import time
 a = ["안녕하세요", "반갑습니다", "제 이름은", "김진수입니다.", "너는 누구세요?"]
 for j in a:
@@ -526,3 +526,21 @@ for i in b:
     time.sleep(0.1)
 print()
 msg = input(">> ")
+
+import random
+import time
+
+name = input("이름을 입력 하세요 : ")
+tem = random.uniform(89, 95)
+tem = round(tem, 2)
+txt01_1 = ["지나치게 화창한 올해 여름.", f"오늘의 날씨는 무려 <{tem}>도(화씨임). 엄청난 폭염이다...", f"무더운 여름을 나기 위해 {name}은/는 친구들과 함께 워터파크에 놀러갔다.", "그들 앞에 다가올 엄청난 운명을 예측하지 못한 채..."]
+for i in txt01_1:
+	for j in i:
+		print(j, end = "")
+		time.sleep(0.1)
+	print()
+	time.sleep(0.2)
+print()
+time.sleep(2)
+kk = input("히히히")
+'''
