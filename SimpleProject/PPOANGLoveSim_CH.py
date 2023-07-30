@@ -62,8 +62,8 @@ class WindowSetting:
 window = WindowSetting()
 count = 1
 
-def countDays():
-    window.OpenWindow(f"{count}일 차....")
+def countDays(days):
+    window.OpenWindow(days)
 
 def openPhotos(path):
     window.OpenPhoto(path)
@@ -72,6 +72,7 @@ def openMsgs(msg):
     window.OpenWindow(msg)
 
 if __name__ == '__main__':
+    '''
     while True:
         countDays()
         msg = input(">> ")
@@ -82,3 +83,4 @@ if __name__ == '__main__':
         else:
             openMsgs(msg)
         count += 1
+    '''
