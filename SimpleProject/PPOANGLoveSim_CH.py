@@ -7,7 +7,7 @@ class WindowSetting:
     close_btn = False
     
     def __init__(self):
-        print("hi")
+        print("")
 
 
     def OpenWindow(self, text):
