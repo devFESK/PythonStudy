@@ -59,6 +59,7 @@ class WindowSetting:
         self.window.after_cancel(self.close_after_id)
 
 
+
 window = WindowSetting()
 count = 1
 
@@ -71,10 +72,19 @@ def openPhotos(path):
 def openMsgs(msg):
     window.OpenWindow(msg)
 
+def readString(msg):
+    for i in msg:
+        print(i, end='')
+        time.sleep(0.1)
+    print()
+    time.sleep(0.2)
+    
+
+
 if __name__ == '__main__':
     '''
     while True:
-        countDays()
+        countDays(count)
         msg = input(">> ")
         if msg == "exit":
             break
