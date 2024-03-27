@@ -72,6 +72,7 @@ def openPhotos(path):
 def openMsgs(msg):
     window.OpenWindow(msg)
 
+#너가 문장 만들때, 이걸로 문자 하나씩 출력하게 사용해봐
 def readString(msg):
     for i in msg:
         print(i, end='')
