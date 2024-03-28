@@ -163,7 +163,17 @@
                     # "\b" : 한 글자 삭제
                     # "\t" : tab
             # bool(불형)
+                # 참과 거짓을 표현하는 자료형
+                # True / False로 이루어져 있음
+                # 내용이 비어있을 경우 False, 내용이 존재하면 True
+                    # True -> "python", [1, 2, 3], (1, 2, 3), {"a" : 1}, 1
+                    # False -> "", [], {}, (), 0, None
             # List(리스트)
+                # 여러가지 데이터의 묶음(군같은 개념)
+                # 리스트 내 데이터 구분은 "," 이용
+                # "[]"으로 묶음 처리
+                # 리스트의 index는 "0"부터 시작함
+                # index가 "-1"인 경우 마지막 index item을 가져옴
             # Tuple(튜플)
             # set(세트)
             # dict(딕셔너리)
@@ -226,4 +236,38 @@ print(str[2:7])
 str = 'hello world'
 print(str + " example python" + " is F U N !")
 print(str * 2)
+
+# list test
+a = [1, 1, 1, 2, 3, 4]
+b = [1, 'a', "hello world", 5.0] # 여러가지 형식의 데이터 list
+c = [] # 빈 리스트 만들기("c = list()"로도 만들 수 있음)
+
+print(a + b)
+print(a * 2)
+print(len(a)) # len(list) -> 리스트의 길이 반환
+print(a.count(1)) # list.count(A) -> 리스트 내부 "A"의 개수 반환
+
+a[1] = 29 # list[i] = A -> 리스트 내부 i번 index item을 "A"로 변환
+
+print(a)
+
+del a[1:3] # del list[i] -> 리스트 내부 i번 index item을 삭제
+
+print(a)
+
+a.remove(1) # list.remove(A) -> 리스트 내부 "A" 삭제 / del은 index기준으로 판단, remove는 item 기준으로 판단 / "A"가 복수일 경우, 첫번째 index만 삭제
+
+print(a)
+
+a += b
+a.pop()
+
+print(a)
+print(a.pop(4))
+print(a)
+
+a_copy = a.remove(3)
+
+print(a_copy) # list.remove(A) -> remove는 삭제라는 행위만 해주고, 결과를 반환하지 않기 때문에, 해당 식은 "None"의 결과로 나타남, 어떤 기능이 반환값이 존재하고 어떤 기능이 반환하지 않는지는 외워야함
+print(a)
 """
