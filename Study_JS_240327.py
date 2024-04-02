@@ -30,7 +30,19 @@
                     # import keyword
                     # print(keyword.kwlist)
                 # 결과 : [‘False’, ‘None’, ‘True’, ‘and’, ‘as’, ‘assert’, ‘async’, ‘await’, ‘break’, ‘class’, ‘continue’, ‘def’, ‘del’, ‘elif’, ‘else’, ‘except’, ‘finally’, ‘for’, ‘from’, ‘global’, ‘if’, ‘import’, ‘in’, ‘is’, ‘lambda’, ‘nonlocal’, ‘not’, ‘or’, ‘pass’, ‘raise’, ‘return’, ‘try’, ‘while’, ‘with’, ‘yield’]
-
+        # 변수 종류
+            # 같은 지역(위계)에서 같은 이름을 가진 변수는 하나뿐
+                # ex) 만약 함수 F 내에서 전역변수 a를 선언했으면, 다시 a라는 변수를 사용 불가
+            # 전역 변수 = 전(체영)역 변수
+                # 스크립트 전체에서 접근이 가능한 변수
+            # 지역 변수
+                # 특정 범위에서만 사용하는 변수
+                # 클래스 혹은 함수 내부에서 선언하는 변수들은 지역변수로 취급
+                # 전역변수와 같은 이름으로 지역변수 선언 -> 가능, 그러나 지역변수가 지역 내에서 우선적으로 사용됨 / 사실상 생김새만 같고 다른 변수
+                # 기본적으로 전역변수를 내부에서 사용할대는 "global" 키워드를 통해서 전역변수인 것을 명시해주는 것이 좋음
+                    # 전역변수 값을 낮은 위계에서 변경하려면 global 키워드로 선언한 후 변경해야 함
+            # nonlocal 변수
+                # 함수 또는 클래스의 하위(함수 안의 함수 개념)에서, 상위 함수 또는 클래스에서 선언한 변수를 사용하고 싶을때 global 대신 사용
     # print(출력) -> 프로그램을 실행했을 때 결과를 출력하는 기본적인 함수
         # print라는 기능은 기본적으로 언어에 탑재된 출력 기능이라고 이해하면 좋음
         # 기본 사용 형식은 "print(somthing)" 형식
@@ -236,7 +248,9 @@ print(str[2:7])
 str = 'hello world'
 print(str + " example python" + " is F U N !")
 print(str * 2)
+"""
 
+"""
 # list test
 a = [1, 1, 1, 2, 3, 4]
 b = [1, 'a', "hello world", 5.0] # 여러가지 형식의 데이터 list
@@ -266,8 +280,60 @@ print(a)
 print(a.pop(4))
 print(a)
 
-a_copy = a.remove(3)
+a_remove_failed = a.remove(3)
 
-print(a_copy) # list.remove(A) -> remove는 삭제라는 행위만 해주고, 결과를 반환하지 않기 때문에, 해당 식은 "None"의 결과로 나타남, 어떤 기능이 반환값이 존재하고 어떤 기능이 반환하지 않는지는 외워야함
+print(a_remove_failed) # list.remove(A) -> remove는 삭제라는 행위만 해주고, 결과를 반환하지 않기 때문에, 해당 식은 "None"의 결과로 나타남, 어떤 기능이 반환값이 존재하고 어떤 기능이 반환하지 않는지는 외워야함
 print(a)
+
+a.append(3) # list.append(A) -> list에 A 추가(마지막 index로 추가) / 단일 item 추가
+a.append([5, 6])
+a.extend([5]) # list.extend([B]) -> list에 B(list) 추가 / 복수의 item 추가 가능
+a.extend([5, 6])
+a.insert(1, 10) # list.insert(i, j) -> x번째 index에 j라는 item을 추가 / 기존 x번째 index부터 전부 +1씩 index 뒤로 밀림
+
+c = [4, 2, 3, 10]
+c.sort() # list.sort() -> (if list - int) list의 item 값이 작은 순서대로 index 재정렬
+
+b = ["abc", "a", "1", "_a", "a-C-BAL", "123", "11"] # (if list - str) hierarchy : number > special > general
+b.sort()
+b.reverse() # list.reverse() -> index 반대로
+d = b.index("123") # list.index(A) -> list 내부의 A라는 item이 있을 경우, 해당 index를 반환 / 없으면 오류 발생
+
+print(a)
+print(c)
+print(b)
+print(d)
+"""
+
+"""
+# 다양한 변수 선언 관련 test
+b = 1
+def Outer():
+    a = 3
+
+    def Inner():
+        global a
+        a = 2
+        print("Inner 내부 함수 a:" , a)
+    
+    Inner()
+    print("Outer 내부 함수 a :" , a)
+
+Outer()
+print("전역변수 a : " , a)
+
+def Function01():
+    c = 3
+
+    def Inner02():
+        global b
+        nonlocal c
+        d = 4
+        print(b)
+        print(c)
+        print(d)
+    
+    Inner02()
+
+Function01()
 """
