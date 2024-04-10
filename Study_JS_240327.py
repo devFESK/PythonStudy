@@ -187,8 +187,45 @@
                 # 리스트의 index는 "0"부터 시작함
                 # index가 "-1"인 경우 마지막 index item을 가져옴
             # Tuple(튜플)
+                # List와 비슷한 형식, 그러나 내부의 값을 변경할 수 없음
+                # ()로 둘러싸여 있으며, 1개의 요소만을 담을 때는 뒤에 ","를 써야 함
+                # 반드시 ()를 사용하지 않고 생략 가능
+                # 튜플 내 요소 삭제 불가능
             # set(세트)
+                # 집합 자료형
+                # "set" 키워드를 통해서 만들 수 있음
+                # 문자열을 세트로 만들 수 있음
+                    # 세트는 중복되는 부분을 제거하고 무작위로 순서가 배치됨
+                # 세트는 요소가 존재하지 않음
+                    # index를 통해서 값을 가져올 수 없음
+                    # index로 접근하기 위해서는 리스트나 튜플로 변환하여야 함
+                # 세트는 교집합, 합집합, 차집합을 구할때 간편함(like boolean 연산)
+                    # 교집합
+                        # a & b / a.intersection(b)
+                    # 합집합
+                        # a | b / a.union(b)
+                    # 차집합
+                        # a - b / a.difference(b)
+                # 세트는 값을 추가하거나 뺄 수 있음
+                    # a.add(b) / a.update([1, 2, 3]) / a.remove(2)
             # dict(딕셔너리)
+                # 순서는 없음, "key"와 "value"를 한 쌍으로 갖는 데이터 구조체(그래스호퍼에 저런 컴포넌트 구조 많죠?)
+                # "{}"로 구성됨, key와 value는 ":" 로 구분
+                # key는 중복될 수 없음
+                # key는 불변 값으로 사용해야 함
+                # value는 중복될 수 있으며, 어떤 데이터 타입도 가능
+                # key값을 이용하여 value를 얻을 수 있음
+                # 사용 방법
+                    # dict[x] -> x key에 연결된 value 반환 / x가 없으면 에러
+                    # dict.get(x) -> x key에 연결된 value 반환 / x가 없으면 None
+                    # dict.get(x, y) -> x key에 연결된 value 반환 / x가 없으면 y 반환
+                    # dict.keys() -> dict에 속한 keys 반환
+                    # dict.values() -> dict에 속한 values 반환
+                    # dict.items() -> dict에 속한 (keys, values) 반환
+                    # x in dict -> x가 dict 안에 key로 존재하는지 판별
+                    # dict[x] = y -> 마지막 index에 (x, y) key와 value 값 추가
+                    # del dict[x] -> (x, value)로 구성된 x key와 해당 value값 삭제
+                    # dict.clear() -> dict 초기화
     # 조건문
     # 반복문
     # 함수
@@ -336,4 +373,67 @@ def Function01():
     Inner02()
 
 Function01()
+
+# Tuple example
+a = ()
+b = (1, )
+c = (1, 2, 3)
+d = 1, 2, 3
+e = b + c # (1, 1, 2, 3)
+f = d + e
+
+print(f) # (1, 2, 3, 1, 1, 2, 3)
+print(len(f))
+
+# set test
+a = set()
+b = set([1, 2, 3])
+c = set("Hello")
+d = set([1, 4, 2, 6, 8])
+
+print(a)
+print(b)
+print(c)
+print(b & d)
+print(b.intersection(d))
+print(b | d)
+print(b.union(d))
+print(d - b)
+print(d.difference(b))
+
+a.add(1)
+a.update([1, 2, 3])
+b.remove(1)
+print(a)
+print(b)
 """
+
+# dict test
+a = {}
+b = {"a" : 1, "b" : 2, "d" : 4}
+c = dict(d = 1, e = 2, f = 3)
+
+print(b["a"])
+print(b.get('d'))
+print(b.get("d", 0))
+print(b.keys())
+print(b.values())
+print(b.items())
+
+del b["a"]
+print(b)
+
+b["c"] = 3
+print(b)
+
+a["a"] = 1
+a["b"] = [1, 2, 3]
+a["c"] = "Hello"
+a["d"] = {"e" : 4, "f" : 5}
+a["e"] = (1, 2, 3)
+
+print(a)
+print("a" in a) # True -> "a" key 존재
+print("f" in a) # False -> "f" key 존재X
+print(a.clear())
+print(a)
